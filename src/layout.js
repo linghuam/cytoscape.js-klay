@@ -89,6 +89,10 @@ const getPos = function( ele ){
     p.x += kp.x;
     p.y += kp.y;
   }
+  
+  // fix：布局算法返回的位置为左上，而 cytoscape 位置为几何中心
+  p.x += ele.width() / 2;
+  p.y += ele.height() / 2;
 
   return p;
 };
